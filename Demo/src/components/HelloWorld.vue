@@ -4,11 +4,17 @@
 
 <script>
 import MsButton from './button/MsButton.vue';
+import TodosAPI from '@/api/components/todos/TodosAPI.js';
 
 export default {
   name: 'HelloWorld',
   components: {
     MsButton
+  },
+  created() {
+    TodosAPI.getAll()
+    .then(res => console.log(res.data))
+    .catch(err => console.log(err))
   },
   data () {
     return {
